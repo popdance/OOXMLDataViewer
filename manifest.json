@@ -1,0 +1,17 @@
+﻿{
+	"name": "OOXML BROWSER",
+	"description": "We can browse OOXML Contents",
+	"version": "0.5",
+	"app": {
+		"background": {
+			"scripts": ["app.js"]
+		}
+	},
+	"icons": { 
+		"16": "./icons/ooxmlicon-16.png", 
+		"128": "./icons/ooxmlicon-128.png" 
+	},
+	"sandbox": {
+		"pages": ["sandbox.html"]
+	}
+}

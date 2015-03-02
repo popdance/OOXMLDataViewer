@@ -1,0 +1,19 @@
+{
+  "name": "OOXMLBrowser",
+  "version": "0.5.0",
+  "description": "OOXML Browser",
+  "main": "bower.json",
+  "moduleType": [
+    "es6"
+  ],
+  "authors": [
+    "dhkim"
+  ],
+  "license": "Apache",
+  "dependencies": {
+	"ace-builds": "master",
+	"jszip": "master",
+    "polymer": "Polymer/polymer#master",    
+    "vkbeautify-wrapper": "master"
+  }
+}
