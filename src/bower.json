@@ -13,7 +13,7 @@
   "dependencies": {
 	"ace-builds": "master",
 	"jszip": "master",
-    "polymer": "Polymer/polymer#master",    
+    "polymer": "Polymer/polymer#master",
     "vkbeautify-wrapper": "master"
   }
 }

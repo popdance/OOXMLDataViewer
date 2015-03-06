@@ -1,6 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-    <head>	
+    <head>
 		<title>Sandbox For Xml Editor (ACE)</title>
 		<meta name="http-equiv" content="Content-type: text/html; charset=utf-8"/>
 		<meta name="http-equiv" content="Content-type: text/css; charset=utf-8"/>
@@ -13,14 +13,14 @@
 			<input type="file" value="Open" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/haansoftdocx" id="input_file"/>
 			<input type="button" value="Close" id="close_file"/>
 		</div>
-		
+
 		<div id="list"></div>
 		<div id="editor_wrapper">
 			<div id="editor"></div>
 			<div id="image_viewer"></div>
 		</div>
 		<div id="footer"></div>
-	
+
 		<!-- Import javascript Part -->
 		<script src="bower_components/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
 		<script src="bower_components/ace-builds/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
@@ -28,19 +28,19 @@
 		<script src="bower_components/vkbeautify-wrapper/dist/vkbeautify.0.99.00.beta.js" type="text/javascript" charset="utf-8"></script>
 		<script src="bower_components/jszip/dist/jszip.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
-		
+
 			if (typeof String.prototype.endsWith !== 'function') {
 				String.prototype.endsWith = function(suffix) {
 					return this.indexOf(suffix, this.length - suffix.length) !== -1;
 				};
 			}
-		
+
 			(function(obj) {
 				var editor = ace.edit("editor");
 				var XmlMode = require("ace/mode/xml").Mode;
-				editor.setTheme("ace/theme/twilight");			
-				editor.getSession().setMode(new XmlMode());				
-				
+				editor.setTheme("ace/theme/twilight");
+				editor.getSession().setMode(new XmlMode());
+
 				var resizer = function() {
 					var listElm = document.getElementById('list');
 					var editorWrapperElm = document.getElementById('editor_wrapper');
@@ -50,16 +50,16 @@
 					editorElm.style.height = (window.innerHeight - 40) + "px";
 					editor.renderer.onResize(true);
 				};
-				
+
 				resizer();
 				window.onresize = resizer;
-				
+
 			})(this);
-			
-			(function(obj) {			
+
+			(function(obj) {
 				var inputButton = document.getElementById("input_file");
 				var closeButton= document.getElementById("close_file");
-				
+
 				var linkToViewer = function(event) {
 					var file = event.target.file;
 					if (file.name.toLowerCase().endsWith('.bmp')) {
@@ -71,7 +71,7 @@
 						var blob = new Blob([myArray], {'type': 'image/bmp'});
 						var imageUrl = URL.createObjectURL(blob); //different prefixes for different vendors
 						var img = new Image();
-						img.src = imageUrl;				
+						img.src = imageUrl;
 						imageViewerElm.appendChild(img);
 					} else if (file.name.toLowerCase().endsWith('.png')) {
 						var imageViewerElm = document.getElementById('image_viewer');
@@ -82,7 +82,7 @@
 						var blob = new Blob([myArray], {'type': 'image/png'});
 						var imageUrl = URL.createObjectURL(blob); //different prefixes for different vendors
 						var img = new Image();
-						img.src = imageUrl;				
+						img.src = imageUrl;
 						imageViewerElm.appendChild(img);
 					} else if (file.name.endsWith('.xml') ||
 					               file.name.endsWith('.rels')) {
@@ -92,12 +92,12 @@
 						alert('Not support!');
 					}
 				};
-				
+
 				var toggleButtons = function(input, close) {
 					inputButton.disabled = input;
-					closeButton.disabled = close;	
+					closeButton.disabled = close;
 				};
-				
+
 				var checkMimeType = function(file) {
 					if (file.type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
 						return true;
@@ -106,18 +106,18 @@
 					}
 					return false;
 				};
-				
+
 				var readOOXML = function(file) {
 					var fileReader = new FileReader();
 					fileReader.onload = function(event)  {
 						var loadedJSZip = new JSZip(event.target.result);
-						
+
 						var listElm = document.querySelector('#list');
 						while (listElm.firstChild) {
 							listElm.removeChild(listElm.firstChild);
 						}
-						
-						for (var entryFileName in loadedJSZip.files) {				
+
+						for (var entryFileName in loadedJSZip.files) {
 							var fileListElm = document.createElement('ul');
 							var linkFileContained = document.createElement("a");
 							linkFileContained.innerHTML = entryFileName;
@@ -125,16 +125,16 @@
 							linkFileContained.file = loadedJSZip.files[entryFileName];
 							linkFileContained.onclick = linkToViewer;
 							var liFileContained = document.createElement("li");
-							liFileContained.appendChild(linkFileContained);						
+							liFileContained.appendChild(linkFileContained);
 							fileListElm.appendChild(liFileContained);
 							listElm.appendChild(fileListElm);
 						}
 					};
 					fileReader.readAsArrayBuffer(file);
 				};
-				
+
 				toggleButtons(false, true);
-				
+
 				inputButton.addEventListener('change', function(event) {
 					toggleButtons(true, false);
 					if (checkMimeType(event.target.files[0])) {
@@ -146,9 +146,9 @@
 
 				closeButton.addEventListener('change', function(event) {
 					toggleButtons(false, true);
-				});					
+				});
 			})(this);
-			
+
 		</script>
 	</body>
 </html>

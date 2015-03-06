@@ -1,8 +1,8 @@
-﻿html, body    { 
-	margin:0; 
-	padding:0; 
-	width:100%; 
-	height:100%; 
+html, body    {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
 	overflow:hidden;
 }
 
@@ -24,13 +24,13 @@ li {
 
 li:hover {
 	background-color: #BBBB99;
-	border-radius: 10px;  
+	border-radius: 10px;
 }
 
 a {
 	color: black;
 	font-size: 9pt;
-	text-decoration:none;	
+	text-decoration:none;
 }
 
 #toolbar {
@@ -75,7 +75,7 @@ a {
 #image_viewer {
 	position:absolute;
 	top:100px;
-	left:100px;	
+	left:100px;
 	z-index:100;
 	background-color:#FFFFFFFF;
 }

@@ -1,4 +1,4 @@
-﻿chrome.app.runtime.onLaunched.addListener(function() {
+chrome.app.runtime.onLaunched.addListener(function() {
 	chrome.app.window.create('app.html', {
 		'bounds': {
 			'width': Math.round(window.screen.availWidth*0.9),
