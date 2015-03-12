@@ -23,27 +23,27 @@ window.onload = function () {
 
   var fileListManager = new FileListManager(function (file) {
 		if (file.name.toLowerCase().endsWith('.bmp')) {
-			var imageViewerElm = document.getElementById('image_viewer');
-			while (imageViewerElm.firstChild) {
-				imageViewerElm.removeChild(imageViewerElm.firstChild);
-			}
-			var myArray = file.asUint8Array();
-			var blob = new Blob([myArray], {'type': 'image/bmp'});
-			var imageUrl = URL.createObjectURL(blob); //different prefixes for different vendors
-			var img = new Image();
-			img.src = imageUrl;
-			imageViewerElm.appendChild(img);
+		// 	var imageViewerElm = document.getElementById('image_viewer');
+		// 	while (imageViewerElm.firstChild) {
+		// 		imageViewerElm.removeChild(imageViewerElm.firstChild);
+		// 	}
+		// 	var myArray = file.asUint8Array();
+		// 	var blob = new Blob([myArray], {'type': 'image/bmp'});
+		// 	var imageUrl = URL.createObjectURL(blob); //different prefixes for different vendors
+		// 	var img = new Image();
+		// 	img.src = imageUrl;
+		// 	imageViewerElm.appendChild(img);
 		} else if (file.name.toLowerCase().endsWith('.png')) {
-			var imageViewerElm = document.getElementById('image_viewer');
-			while (imageViewerElm.firstChild) {
-				imageViewerElm.removeChild(imageViewerElm.firstChild);
-			}
-			var myArray = file.asUint8Array();
-			var blob = new Blob([myArray], {'type': 'image/png'});
-			var imageUrl = URL.createObjectURL(blob); //different prefixes for different vendors
-			var img = new Image();
-			img.src = imageUrl;
-			imageViewerElm.appendChild(img);
+		// 	var imageViewerElm = document.getElementById('image_viewer');
+		// 	while (imageViewerElm.firstChild) {
+		// 		imageViewerElm.removeChild(imageViewerElm.firstChild);
+		// 	}
+		// 	var myArray = file.asUint8Array();
+		// 	var blob = new Blob([myArray], {'type': 'image/png'});
+		// 	var imageUrl = URL.createObjectURL(blob); //different prefixes for different vendors
+		// 	var img = new Image();
+		// 	img.src = imageUrl;
+		// 	imageViewerElm.appendChild(img);
 		} else if (file.name.endsWith('.xml') ||
 		               file.name.endsWith('.rels')) {
 			var editor = ace.edit("editor");
