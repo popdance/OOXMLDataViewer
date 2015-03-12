@@ -51,10 +51,10 @@ div.menubar_shadow {
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 58;
+  top: 53px;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 5px;
   z-index: 10;
   background-color: #3E3E39;
 }
