@@ -14,6 +14,7 @@ var InputObject = function (callback) {
   fobject.addEventListener('change', function (event) {
     wbutton.disabled=true;
     callback(event.target.files[0]);
+    wbutton.disabled=false;
   }, false);
   this.init = function () {
     wbutton.disabled=false;
