@@ -13,15 +13,13 @@ var resizer = function() {
   if (ed) {
     ed.style.height = (window.innerHeight - offsetHeight) + "px";
   }
-
-  console.log(document.body.offsetHeight);
 };
 
 window.onload = function () {
   "use strict";
   /* add event resize listener */
-  window.resize = resizer;
-  window.resize();
+  window.onresize = resizer;
+  window.onresize();
 
   var fileListManager = new FileListManager(function (file) {
 		if (file.name.toLowerCase().endsWith('.bmp')) {
@@ -65,7 +63,6 @@ window.onload = function () {
           fileListElm.removeChild(fileListElm.firstChild);
         }
         document.querySelector('.filelist').appendChild(element);
-        console.log(fileListElm.offsetHeight);
       },
       function (/*error*/) {
         console.log("Error!");
