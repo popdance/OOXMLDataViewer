@@ -17,6 +17,13 @@ var resizer = function() {
 
 window.onload = function () {
   "use strict";
+
+  if (typeof String.prototype.endsWith !== 'function') {
+    String.prototype.endsWith = function(suffix) {
+        return this.indexOf(suffix, this.length - suffix.length) !== -1;
+    };
+  }
+
   /* add event resize listener */
   window.onresize = resizer;
   window.onresize();
